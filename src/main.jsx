@@ -1,3 +1,4 @@
+import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router-dom'
 import { createBrowserRouter } from 'react-router-dom'
 import React from 'react'
@@ -7,6 +8,7 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Bag from './routes/Bag.jsx'
 import Home from './routes/Home.jsx'
+import myntrastore from './store/index.js'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={myntrastore}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )
